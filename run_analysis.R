@@ -1,11 +1,13 @@
 library(readr)
 library(dplyr)
 
+#Load feature and activity labels
 features <- read_delim("./UCI HAR Dataset/features.txt", delim = " ", col_names = FALSE)
 features <- unlist(features[,2])
 activity_labels <- read_delim("./UCI HAR Dataset/activity_labels.txt", delim = " ", col_names = FALSE)
 activity_labels <- unlist(activity_labels[,2])
 
+#Load data
 X_test <- read.table("./UCI HAR Dataset/test/X_test.txt", sep = "", header = FALSE, col.names = features)
 y_test <- read_delim("./UCI HAR Dataset/test/y_test.txt", delim = " ", col_names = "activity")
 subject_test <- read_delim("./UCI HAR Dataset/test/subject_test.txt", delim = " ", col_names = "subject")
@@ -45,5 +47,7 @@ for (i in 1:30){
         tidy_data[6*(i-1)+j,-(1:2)] <- colMeans(relevant_data[index,-(1:2)])
     }
 }
+
+tidy_data$subject <- factor(tidy_data$subject) #Make 'subject' a factor variable
 
 write.table(tidy_data,file="tidy_data.txt",row.names = FALSE) #Write to file
