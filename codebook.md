@@ -1,10 +1,10 @@
-#Identifiers
+## Identifiers
 
 "subject”: A number corresponding to the identity of the person wearing the device, 1-30
  
 "activity”: The activity they were engaged in, a factor with 6 levels 
 
-#Measurements
+## Measurements
 
 "timebodyaccmeanx”: The average for each person and each activity of tBodyAcc-mean()-X
 
