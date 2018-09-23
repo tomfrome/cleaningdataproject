@@ -14,5 +14,4 @@ Finally, we created a second, independent tidy data set with the average of each
 
 To read the data, simply use this code (after putting tidy_data.txt into your working directory):
 
-data <- read.table(“tidy_data.txt”, header = TRUE)
-View(data)
+data <- read.table(“tidy_data.txt”, header = TRUE); View(data)
